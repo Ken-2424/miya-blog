@@ -11,6 +11,7 @@
 </head>
 <body>
     <h1>MiyaBlog</h1>
+    <p>こんにちは西山です</p>
     <p>最新の研究をお伝えします</p>
     <button class="new-post" onclick="location.href='/administer/post/create'">新規作成画面</button>
     <button class="logout" onclick="confirmLogout()">ログアウト</button>
