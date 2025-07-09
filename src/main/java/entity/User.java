@@ -44,7 +44,7 @@ public class User {
     }
 
     private void checkUserId(int userId) throws modelUtil.Failure {
-        if (userId <= 0) {
+        if (userId < 0) {
             throw new modelUtil.Failure("ユーザーIDは正の正数でなくてはなりません。");
         }
     }
