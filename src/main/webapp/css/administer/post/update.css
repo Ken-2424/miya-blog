@@ -25,8 +25,23 @@ button {
     cursor: pointer;
 }
 
-button.read {
-    background-color: #bcced3;
+button.new-post {
+    background-color: #00bfff;
+    color: white;
+}
+
+button.logout {
+    background-color: #ffa500;
+    color: white;
+}
+
+button.update {
+    background-color: #32cd32; /* 濃い緑色 */
+    color: white;
+}
+
+button.delete {
+    background-color: #ff6347; /* 濃い赤色 */
     color: white;
 }
 

@@ -14,8 +14,8 @@ import entity.Post; // Postエンティティのインポート
 import java.util.ArrayList; // ArrayListのインポート
 import java.util.List; // Listのインポート
 
-@WebServlet("/reader/detail") // このサーブレットのURLマッピング
-public class DetailServlet extends HttpServlet {
+@WebServlet("") // このサーブレットのURLマッピング
+public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -29,20 +29,23 @@ public class DetailServlet extends HttpServlet {
             request.setAttribute("error", error);
         }
 
-        try {
+        try{
             PostsDao postsDao = new PostsDao();
-            int postId = Integer.parseInt(request.getParameter("postId"));
-            Post post = postsDao.getOne(postId);
-            if (post == null) {
-                throw new ServletException("指定された投稿が見つかりません。");
+            List<Post> posts = postsDao.getAll();
+            if(posts == null){
+                posts = new ArrayList<>();
             }
-            request.setAttribute("post", post);
-        } catch (Exception e) {
-            throw new ServletException("投稿データの取得中にエラーが発生しました。", e);
+            request.setAttribute("posts", posts);
+        } catch (Exception e){
+            request.setAttribute("error", "投稿取得時にエラーが発生しました。");
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/reader/detail.jsp");
-        dispatcher.forward(request, response);
+        String alertMessage = request.getParameter("message");
+        if(alertMessage != null && !alertMessage.isEmpty()){
+            request.setAttribute("alertMessage", alertMessage); 
+        }
 
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/reader/home.jsp");
+        dispatcher.forward(request, response);
     }
 }
