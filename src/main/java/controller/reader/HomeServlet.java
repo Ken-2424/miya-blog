@@ -14,7 +14,7 @@ import entity.Post; // Postエンティティのインポート
 import java.util.ArrayList; // ArrayListのインポート
 import java.util.List; // Listのインポート
 
-@WebServlet("/reader/home") // このサーブレットのURLマッピング
+@WebServlet("") // このサーブレットのURLマッピング
 public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,7 +37,7 @@ public class HomeServlet extends HttpServlet {
             }
             request.setAttribute("posts", posts);
         } catch (Exception e){
-            throw new ServletException("投稿データの取得中にエラーが発生しました。", e);
+            request.setAttribute("error", "投稿取得時にエラーが発生しました。");
         }
 
         String alertMessage = request.getParameter("message");
