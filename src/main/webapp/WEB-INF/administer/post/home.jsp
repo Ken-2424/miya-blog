@@ -35,6 +35,7 @@
                     <h2>${post.postTitle}</h2>
                     <p>${post.postText}</p>
                     <p>投稿日時: ${post.createdAt}</p>
+                    <p>更新日時: ${post.updatedAt}</p>
                     <button class="update" onclick="location.href='/administer/post/update?postId=${post.postId}'">更新</button>
                     <button class="delete" onclick="confirmDelete('${post.postId}')">削除</button>
                 </div>
