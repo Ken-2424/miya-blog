@@ -12,6 +12,9 @@
     <h1>ブログ記事の更新</h1>
     <%@ include file="/WEB-INF/common/alert.jsp" %>
     <form action="/administer/post/execute-update" method="post">
+        
+        <input type="hidden" name="postId" value="${post.postId}">
+
         <label for="title">タイトル</label>
         <input type="text" id="title" name="title" placeholder="タイトル" required>
 
