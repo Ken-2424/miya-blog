@@ -16,10 +16,10 @@
         <input type="hidden" name="postId" value="${post.postId}">
 
         <label for="title">タイトル</label>
-        <input type="text" id="title" name="title" placeholder="タイトル" required>
+        <input type="text" id="title" name="title" placeholder="タイトル" required value="${post.postTitle}">
 
         <label for="content">記事</label>
-        <textarea id="content" name="text" placeholder="記事を入力" required></textarea>
+        <textarea id="content" name="text" placeholder="記事を入力" required>${post.postText}</textarea>
 
         <button type="submit">更新</button>
     </form>
